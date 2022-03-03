@@ -1,28 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en, id">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <title>Document</title>
 </head>
 <body>
     <section>
-        <nav class="flex grid grid-cols-5 py-3 px-4 border border-gray-200">
-            <div class="col-span-4">
-                <p>Sampe Mana</p>
+        <!--Navbar Section-->
+        <nav class="flex grid py-3 px-4 border border-gray-200 grid-cols-8">
+
+            <!--Logo Navbar-->
+            <div class="col-span-6">
+                <a class="text-blue-500 font-semibold">Samana</a>
             </div>
-            <div class="flex items-end place-self-end lg:hidden">
-                <i data-feather="menu"></i>
+            <!--End Logo Navbar-->
+
+            <!--Icon Navbar-->
+            <!--Search Icon-->
+            <div x-data="{open: false}" class="flex justify-center">
+                <div @click="open = ! open">
+                    <button>
+                        <i data-feather="search"></i>
+                    </button>
+                </div>
+                <div x-show="open" x-transition class="h-screen fixed w-full top-0 left-0 bg-white">
+                    <div @click="open = ! open" class="py-3 flex justify-end pr-5">
+                        <button>
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="py-5 text-center">
+                        <div class="flex border-blue-500 border w-5/6 m-auto rounded-xl">
+                            <button class="pl-2 pr-4 bg-blue-100 rounded-xl pl-3">
+                                <i data-feather="search"></i>
+                            </button>
+                            <form action="#">
+                                <input type="text" placeholder="Input your request number" class="h-10 pb-1 px-3 text-sm">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex hidden lg:flex">
-                <i data-feather="search"></i>
-                <a href="">Sign In</a>
-                <a href="">Get Started</a>
+            <!--End Search Icon-->
+
+            <!--Menu Icon-->
+            <div x-data="{open: false}" class="flex justify-center">
+                <div @click="open = ! open">
+                    <button>
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+                <div x-show="open" x-transition class="h-screen fixed w-full top-0 left-0 bg-white">
+                    <div @click="open = ! open" class="py-3 flex justify-end pr-5">
+                        <button>
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="py-5 text-center">
+                        <ul class="space-y-5">
+                            <li>
+                                <a href="">Home</a>
+                            </li>
+                            <li>
+                                <a href="">Sign In</a>
+                            </li>
+                            <li>
+                                <div class="pb-3 border border-blue-500 pt-2 px-5 rounded-xl w-32 m-auto">
+                                    <a href="/">Register</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <!--End Menu Icon-->
+            <!--End Icon Navbar-->
+
         </nav>
+        <!--End Navbar Section-->
+
+        <!--Header Section-->
+        <header class="border border-gray-200 pt-5 pb-8">
+            <h1 class="text-3xl text-center">Latest <span class="text-blue-500">Sampe Mana</span> Requests</h1>
+
+            <!--Dropdown Category-->
+            <div x-data="{open: false}" @click.away="open = false">
+                <div class="flex justify-center mt-7">
+                    <div @click="open = ! open" class="flex justify-between bg-gray-200 py-2 px-5 rounded-xl w-4/5">
+                        <button class="font-semibold">Departement</button>
+                        <i data-feather="chevron-down" class="p-0.5"></i>
+                    </div>
+                </div>
+                <div x-show="open" x-transition class="flex justify-center mt-3 absolute w-full">
+                    <div class="bg-gray-200 rounded-xl w-4/5">
+                        <ul class="flex flex-col w-full py-3">
+                            <li class="bg-blue-300 py-1 pl-5"><a href="#">CCC</a></li>
+                            <li class="py-1 pl-5"><a href="#">Sales</a></li>
+                            <li class="py-1 pl-5"><a href="#">Inbound</a></li>
+                            <li class="py-1 pl-5"><a href="#">Outbound</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--End Dropdown Category-->
+
+        </header>
+        <!--End Header Section-->
+        <!--Main Section-->
+        <main>
+
+        </main>
+        <!--End Section-->
     </section>
     <script>
         feather.replace()
