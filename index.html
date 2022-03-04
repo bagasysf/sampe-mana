@@ -10,19 +10,18 @@
     <title>Document</title>
 </head>
 <body>
-    <section>
+    <section class="px-6 py-8 py-5">
         <!--Navbar Section-->
-        <nav class="flex grid py-3 px-4 border border-gray-200 grid-cols-8">
+        <nav class="flex justify-between items-center py-2 border border-gray-200">
 
             <!--Logo Navbar-->
-            <div class="col-span-6">
+            <div>
                 <a class="text-blue-500 font-semibold">Samana</a>
             </div>
             <!--End Logo Navbar-->
 
-            <!--Icon Navbar-->
             <!--Search Icon-->
-            <div x-data="{open: false}" class="flex justify-center">
+            <div x-data="{open: false}" class="hidden">
                 <div @click="open = ! open">
                     <button>
                         <i data-feather="search"></i>
@@ -49,12 +48,10 @@
             <!--End Search Icon-->
 
             <!--Menu Icon-->
-            <div x-data="{open: false}" class="flex justify-center">
-                <div @click="open = ! open">
-                    <button>
+            <div x-data="{open: false}">
+                <button @click="open = ! open" class="flex">
                         <i data-feather="menu"></i>
-                    </button>
-                </div>
+                </button>
                 <div x-show="open" x-transition class="h-screen fixed w-full top-0 left-0 bg-white">
                     <div @click="open = ! open" class="py-3 flex justify-end pr-5">
                         <button>
@@ -79,30 +76,27 @@
                 </div>
             </div>
             <!--End Menu Icon-->
-            <!--End Icon Navbar-->
 
         </nav>
         <!--End Navbar Section-->
 
         <!--Header Section-->
-        <header class="border border-gray-200 pt-5 pb-8">
+        <header class="border border-gray-200 py-6 space-y-6">
             <h1 class="text-3xl text-center">Latest <span class="text-blue-500">Sampe Mana</span> Requests</h1>
 
             <!--Dropdown Category-->
-            <div x-data="{open: false}" @click.away="open = false">
-                <div class="flex justify-center mt-7">
-                    <div @click="open = ! open" class="flex justify-between bg-gray-200 py-2 px-5 rounded-xl w-4/5">
-                        <button class="font-semibold">Departement</button>
-                        <i data-feather="chevron-down" class="p-0.5"></i>
-                    </div>
+            <div x-data="{open: false}" @click.away="open = false" class="flex justify-center">
+                <div class="flex justify-between bg-white border border-gray-200 w-64 py-2 px-3 rounded-xl" @click="open = ! open">
+                    <button class="font-semibold">Departement</button>
+                    <i data-feather="chevron-down" class="p-0.5"></i>
                 </div>
-                <div x-show="open" x-transition class="flex justify-center mt-3 absolute w-full">
-                    <div class="bg-gray-200 rounded-xl w-4/5">
+                <div x-show="open" x-transition class="absolute mt-3 w-64 mt-14">
+                    <div class="bg-white border border-gray-200 rounded-xl">
                         <ul class="flex flex-col w-full py-3">
-                            <li class="bg-blue-300 py-1 pl-5"><a href="#">CCC</a></li>
-                            <li class="py-1 pl-5"><a href="#">Sales</a></li>
-                            <li class="py-1 pl-5"><a href="#">Inbound</a></li>
-                            <li class="py-1 pl-5"><a href="#">Outbound</a></li>
+                            <li class="bg-blue-300 py-1 pl-3"><a href="#">CCC</a></li>
+                            <li class="py-1 pl-3"><a href="#">Sales</a></li>
+                            <li class="py-1 pl-3"><a href="#">Inbound</a></li>
+                            <li class="py-1 pl-3"><a href="#">Outbound</a></li>
                         </ul>
                     </div>
                 </div>
@@ -111,11 +105,66 @@
 
         </header>
         <!--End Header Section-->
+
         <!--Main Section-->
-        <main>
+        <main class="py-1">
+
+            <!--Featured Card Request-->
+            <div class="grid grid-cols-8 my-8 bg-gray-50 border border-gray-200 bg-white rounded-xl mx-9">
+                <!--Image Request-->
+                <div class="col-span-8">
+                    <img src="./img/illustration-1.png" alt="" class="rounded-xl">
+                </div>
+                <!--Image Request End-->
+
+                <!--Preview Request-->
+                <div class="px-5 col-span-8 py-5">
+                    <!--Detail Request-->
+                    <div class="col-span-8 space-y-2">
+                        <div class="space-x-1">
+                            <div class="uppercase border rounded-xl inline-flex px-3 py-1 text-xs border-blue-300 text-blue-400 my-3">
+                                <span>Outbound</span>
+                            </div>
+                            <div class="uppercase border rounded-xl inline-flex px-3 py-1 text-xs border-yellow-300 text-yellow-400 my-3">
+                                <span>RBKIGA90897898</span>
+                            </div>
+                        </div>
+                        <h1 class="text-xl font-semibold">Pengajuan Palu Untuk Keperluan Event 7.7</h1>
+                        <div class="text-xs text-gray-500"><span>Published <time>7 hours ago</time></span></div>
+                        <div class="text-base font-light">
+                            <div class="font-semibold">Preview Request</div>
+                            <ul class="pl-5 text-sm">
+                                <li class="truncate"><span>Palu</span> <span>Godwin</span> <span>16 Oz</span></li>
+                                <li class="truncate"><span>Paku</span> <span>Rocket</span> <span>1 1/2</span></li>
+                                <li class="truncate text-gray-500"><span>Many More..</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End Detail Request-->
+
+                    <!--Author Section-->
+                    <div class="flex justify-between pt-5">
+                        <div class="col-span-1">
+                            <img src="./img/lary-avatar.svg" class="w-10" alt="">
+                        </div>
+                        <div class="col-span-3 text-base font-semibold self-center px-3">
+                            <span>Bagas Yusuf</span>
+                        </div>
+                        <div class="col-span-3 uppercase self-center border m-auto py-1 rounded-xl text-xs px-3 text-gray-700 border-gray-400">
+                            <a href="#">Show More</a>
+                        </div>
+                    </div>
+                    <!--End Author Section-->
+
+                </div>
+                <!--End Preview Request-->
+
+            </div>
+            <!--End Featured Card-->
 
         </main>
         <!--End Section-->
+
     </section>
     <script>
         feather.replace()
