@@ -9,56 +9,29 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>Document</title>
 </head>
-<body>
-    <section class="px-5 py-3">
+<body style="font-family: Open Sans, sans-serif">
+    <section class="px-5 py-3 md:px-7 md:py-5 text-sm">
         <!--Navbar Section-->
         <nav class="flex justify-between items-center py-2">
 
             <!--Logo Navbar-->
-            <div>
-                <a class="text-blue-500 font-semibold">Samana</a>
+            <div class="text-lg">
+                <a class="text-blue-500 font-semibold uppercase">Usama</a>
             </div>
             <!--End Logo Navbar-->
 
-            <!--Search Icon-->
-            <div x-data="{open: false}" class="hidden">
-                <div @click="open = ! open">
-                    <button>
-                        <i data-feather="search"></i>
-                    </button>
-                </div>
-                <div x-show="open" x-transition class="h-screen fixed w-full top-0 left-0 bg-white">
-                    <div @click="open = ! open" class="py-3 flex justify-end pr-5">
-                        <button>
-                            <i data-feather="x"></i>
-                        </button>
-                    </div>
-                    <div class="py-5 text-center">
-                        <div class="flex border-blue-500 border w-5/6 m-auto rounded-xl">
-                            <button class="pl-2 pr-4 bg-blue-100 rounded-xl pl-3">
-                                <i data-feather="search"></i>
-                            </button>
-                            <form action="#">
-                                <input type="text" placeholder="Input your request number" class="h-10 pb-1 px-3 text-sm">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Search Icon-->
-
             <!--Menu Icon-->
-            <div x-data="{open: false}">
+            <div x-data="{open: false}" class="sm:hidden">
                 <button @click="open = ! open" class="flex">
                         <i data-feather="menu"></i>
                 </button>
-                <div x-show="open" x-transition class="h-screen fixed w-full top-0 left-0 bg-white">
-                    <div @click="open = ! open" class="py-3 flex justify-end pr-5">
+                <div x-show="open" x-transition class="h-screen fixed w-full top-0 left-0 bg-white p-5">
+                    <div @click="open = ! open" class="flex justify-end">
                         <button>
                             <i data-feather="x"></i>
                         </button>
                     </div>
-                    <div class="py-5 text-center">
+                    <div class="pt-5 text-center">
                         <ul class="space-y-5">
                             <li>
                                 <a href="">Home</a>
@@ -75,6 +48,10 @@
                     </div>
                 </div>
             </div>
+            <div class="hidden sm:flex justify-center items-center space-x-3 uppercase text-xs font-semibold">
+                <a href="#">Sign In</a>
+                <a href="#" class="bg-blue-500 text-white px-5 py-2 rounded-full">Register</a>
+            </div>
             <!--End Menu Icon-->
 
         </nav>
@@ -82,18 +59,18 @@
 
         <!--Header Section-->
         <header class="py-6 space-y-6">
-            <h1 class="text-3xl text-center">Latest <span class="text-blue-500">Sampe Mana</span> Requests</h1>
+            <h1 class="text-3xl text-center px-6">Latest <span class="text-blue-500">Udah Sampe Mana</span> Requests</h1>
 
             <!--Dropdown Category-->
             <div x-data="{open: false}" @click.away="open = false" class="flex justify-center">
-                <div class="flex justify-between bg-white border border-gray-200 w-64 py-2 px-3 rounded-xl" @click="open = ! open">
-                    <button class="font-semibold">Departement</button>
+                <div class="flex justify-between bg-white border border-gray-200 w-64 sm:w-96 py-2 px-3 rounded-xl" @click="open = ! open">
+                    <button>Departement</button>
                     <i data-feather="chevron-down" class="p-0.5"></i>
                 </div>
-                <div x-show="open" x-transition class="absolute mt-3 w-64 mt-14">
+                <div x-show="open" x-transition class="absolute mt-3 w-64 sm:w-96 mt-14">
                     <div class="bg-white border border-gray-200 rounded-xl">
                         <ul class="flex flex-col w-full py-3">
-                            <li class="bg-blue-300 py-1 pl-3"><a href="#">CCC</a></li>
+                            <li class="border border-gray-200 py-1 pl-3"><a href="#">CCC</a></li>
                             <li class="py-1 pl-3"><a href="#">Sales</a></li>
                             <li class="py-1 pl-3"><a href="#">Inbound</a></li>
                             <li class="py-1 pl-3"><a href="#">Outbound</a></li>
@@ -103,24 +80,37 @@
             </div>
             <!--End Dropdown Category-->
 
+            <!--Search-->
+            <div class="flex justify-center">
+                <div class="flex border-gray-200 border w-64 sm:w-96 m-auto rounded-xl">
+                    <button class="pl-2 pr-3 border border-gray-200 rounded-xl pl-3">
+                        <i data-feather="search"></i>
+                    </button>
+                    <form action="#" class="w-full">
+                        <input type="text" placeholder="Input your request number" class="h-10 px-3 w-full">
+                    </form>
+                </div>
+            </div>
+            <!--End Search-->
+
         </header>
         <!--End Header Section-->
 
         <!--Main Section-->
-        <main class="py-6 space-y-5">
+        <main class="py-6 space-y-5 sm:space-y-8 sm:max-w-2xl sm:mx-auto">
 
             <!--Featured Card Request-->
-            <div class="bg-gray-50 border border-gray-200 rounded-xl">
+            <div class="bg-gray-50 border border-gray-200 rounded-xl sm:flex sm:mx-4">
                 <!--Image Request-->
-                <div>
+                <div class="flex-1">
                     <img src="./img/illustration-1.png" alt="" class="rounded-xl">
                 </div>
                 <!--Image Request End-->
 
                 <!--Preview Request-->
-                <div class="p-5">
+                <div class="flex-1">
                     <!--Detail Request-->
-                    <div class="space-y-2">
+                    <div class="space-y-2 p-5">
                         <div class="space-x-1">
                             <div class="inline-flex uppercase border border-blue-300 rounded-xl px-3 py-1 text-xs text-blue-400">
                                 <span>Outbound</span>
@@ -140,90 +130,85 @@
             </div>
             <!--End Featured Card-->
 
-            <!--Request Card Request-->
-            <div class="grid grid-cols-12 bg-gray-50 border border-gray-200 rounded-xl">
-                <!--Image Request-->
-                <div class="col-span-5">
-                    <img src="./img/illustration-1.png" alt="" class="rounded-xl">
+            <div class="space-y-5 sm:space-y-0 sm:grid sm:grid-cols-12">
+                <!--Request Card Request-->
+                <div class="grid grid-cols-12 sm:col-span-6 bg-gray-50 border border-gray-200 rounded-xl sm:mx-4">
+                    <!--Image Request-->
+                    <div class="col-span-5 sm:col-span-12">
+                        <img src="./img/illustration-1.png" alt="" class="rounded-xl">
 
-                </div>
-                <!--Image Request End-->
-
-                <!--Preview Request-->
-                <div class="col-span-7 px-3 py-2">
-                    <!--Detail Request-->
-                    <div class="flex flex-col h-full justify-between">
-                        <h1 class="text-base font-semibold">Pengajuan Palu Untuk Keperluan Event 7.7</h1>
-                        <div class="text-xs text-gray-500"><span>Published <time>7 hours ago</time></span></div>
                     </div>
-                    <!--End Detail Request-->
+                    <!--Image Request End-->
 
-                </div>
-                <!--End Preview Request-->
+                    <!--Preview Request-->
+                    <div class="col-span-7 sm:col-span-12 px-3 py-2 sm:p-5 sm:space-y-2">
+                        <!--Detail Request-->
+                        <div class="space-x-1 hidden sm:block">
+                            <div class="inline-flex uppercase border border-blue-300 rounded-xl px-3 py-1 text-xs text-blue-400">
+                                <span>Outbound</span>
+                            </div>
+                            <div class="inline-flex uppercase border border-yellow-300 rounded-xl px-3 py-1 text-xs text-yellow-400">
+                                <span>RBKIGA90897898</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col h-full sm:h-auto justify-between sm:space-y-2">
+                            <h1 class="sm:text-lg text-base font-semibold">Pengajuan Palu Untuk Keperluan Event 7.7</h1>
+                            <div class="text-xs text-gray-500"><span>Published <time>7 hours ago</time></span></div>
+                        </div>
+                        <!--End Detail Request-->
 
-            </div>
-            <!--End Request Card-->
-
-            <!--Request Card Request-->
-            <div class="grid grid-cols-12 bg-gray-50 border border-gray-200 rounded-xl">
-                <!--Image Request-->
-                <div class="col-span-5">
-                    <img src="./img/illustration-1.png" alt="" class="rounded-xl">
-
-                </div>
-                <!--Image Request End-->
-
-                <!--Preview Request-->
-                <div class="col-span-7 px-3 py-2">
-                    <!--Detail Request-->
-                    <div class="flex flex-col h-full justify-between">
-                        <h1 class="text-base font-semibold">Pengajuan Palu Untuk Keperluan Event 7.7</h1>
-                        <div class="text-xs text-gray-500"><span>Published <time>7 hours ago</time></span></div>
                     </div>
-                    <!--End Detail Request-->
+                    <!--End Preview Request-->
 
                 </div>
-                <!--End Preview Request-->
+                <!--End Request Card-->
 
-            </div>
-            <!--End Request Card-->
+                <!--Request Card Request-->
+                <div class="grid grid-cols-12 sm:col-span-6 bg-gray-50 border border-gray-200 rounded-xl sm:mx-4">
+                    <!--Image Request-->
+                    <div class="col-span-5 sm:col-span-12">
+                        <img src="./img/illustration-1.png" alt="" class="rounded-xl">
 
-            <!--Request Card Request-->
-            <div class="grid grid-cols-12 bg-gray-50 border border-gray-200 rounded-xl">
-                <!--Image Request-->
-                <div class="col-span-5">
-                    <img src="./img/illustration-1.png" alt="" class="rounded-xl">
-
-                </div>
-                <!--Image Request End-->
-
-                <!--Preview Request-->
-                <div class="col-span-7 px-3 py-2">
-                    <!--Detail Request-->
-                    <div class="flex flex-col h-full justify-between">
-                        <h1 class="text-base font-semibold">Pengajuan Palu Untuk Keperluan Event 7.7</h1>
-                        <div class="text-xs text-gray-500"><span>Published <time>7 hours ago</time></span></div>
                     </div>
-                    <!--End Detail Request-->
+                    <!--Image Request End-->
+
+                    <!--Preview Request-->
+                    <div class="col-span-7 sm:col-span-12 px-3 py-2 sm:p-5 sm:space-y-2">
+                        <!--Detail Request-->
+                        <div class="space-x-1 hidden sm:block">
+                            <div class="inline-flex uppercase border border-blue-300 rounded-xl px-3 py-1 text-xs text-blue-400">
+                                <span>Outbound</span>
+                            </div>
+                            <div class="inline-flex uppercase border border-yellow-300 rounded-xl px-3 py-1 text-xs text-yellow-400">
+                                <span>RBKIGA90897898</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col h-full sm:h-auto justify-between sm:space-y-2">
+                            <h1 class="sm:text-lg text-base font-semibold">Pengajuan Palu Untuk Keperluan Event 7.7</h1>
+                            <div class="text-xs text-gray-500"><span>Published <time>7 hours ago</time></span></div>
+                        </div>
+                        <!--End Detail Request-->
+
+                    </div>
+                    <!--End Preview Request-->
 
                 </div>
-                <!--End Preview Request-->
-
+                <!--End Request Card-->
             </div>
-            <!--End Request Card-->
+
 
         </main>
         <!--End Section-->
 
-        <footer class="py-6 space-y-5">
-            <h1 class="text-2xl text-center">Want to make use <span class="font-semibold text-blue-500">better?</span> Yea, you can give us your <span class="font-semibold text-blue-500">suggestion</span></h1>
-            <form action="#" class="flex justify-center flex-col px-8 space-y-3 pb-5">
-                <input class="text-center border border-gray-300 rounded-full w-full py-2" type="text" placeholder="Write your suggestion here">
+        <footer class="py-6 space-y-5 sm:space-y-8 sm:max-w-2xl sm:mx-auto">
+            <h1 class="text-2xl text-center sm:px-28">Want to make use <span class="font-semibold text-blue-500">better?</span> Yea, you can give us your <span class="font-semibold text-blue-500">suggestion</span></h1>
+            <form action="#" class="flex justify-center flex-col px-8 sm:px-28 space-y-3 sm:space-y-5 pb-5">
+                <input class="pl-5 border border-gray-300 rounded-full w-full py-2" type="text" placeholder="Write your suggestion here">
                 <button class="text-center text-white font-semibold uppercase bg-blue-500 rounded-full w-full py-2" type="text">Send</button>
             </form>
-            <h1 class="text-4xl text-blue-500 font-semibold text-center">Samana</h1>
-            <p class="text-center">We try to make everything is full of transparency, we hope everyone will know the process of request itself. And there is no bad thoughts again. May <span class="font-semibold">Allah</span> make it easy</p>
-            <div class="pt-3">
+            <h1 class="text-4xl text-blue-500 font-semibold text-center">Usama</h1>
+            <p class="text-center sm:px-28">We try to make everything is full of transparency, we hope everyone will know the process of request itself. And there is no bad thoughts again. May <span class="font-semibold">Allah</span> make it easy</p>
+            <div class="pt-3 sm:px-28">
                 <hr>
                 <p class="text-gray-500 text-center pt-3">© Samana 2022. All rights reserved. </p>
             </div>
